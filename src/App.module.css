@@ -1,0 +1,28 @@
+.App {
+  text-align: center;
+}
+
+.inputDevice {
+}
+.notes {
+  margin-top: 2em;
+  margin-left: 45%;
+  text-align: left;
+}
+.chord {
+}
+.chordsContainer {
+  margin-top: 2em;
+  text-align: left;
+}
+.possibleChords {
+}
+.pianoConainer {
+  height: 200px;
+}
+.noteName {
+  font-size: 10px;
+}
+.sharps {
+  color: white;
+}
