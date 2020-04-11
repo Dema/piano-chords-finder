@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/piano-chords-finder/static/css/main.89c572de.chunk.css",
-    "main.js": "/piano-chords-finder/static/js/main.e3a80e3c.chunk.js",
-    "main.js.map": "/piano-chords-finder/static/js/main.e3a80e3c.chunk.js.map",
+    "main.css": "/piano-chords-finder/static/css/main.d50bee04.chunk.css",
+    "main.js": "/piano-chords-finder/static/js/main.58f1d1dd.chunk.js",
+    "main.js.map": "/piano-chords-finder/static/js/main.58f1d1dd.chunk.js.map",
     "runtime-main.js": "/piano-chords-finder/static/js/runtime-main.cb5876dd.js",
     "runtime-main.js.map": "/piano-chords-finder/static/js/runtime-main.cb5876dd.js.map",
     "static/css/2.1e78366a.chunk.css": "/piano-chords-finder/static/css/2.1e78366a.chunk.css",
-    "static/js/2.3d77729f.chunk.js": "/piano-chords-finder/static/js/2.3d77729f.chunk.js",
-    "static/js/2.3d77729f.chunk.js.map": "/piano-chords-finder/static/js/2.3d77729f.chunk.js.map",
+    "static/js/2.d8de70ed.chunk.js": "/piano-chords-finder/static/js/2.d8de70ed.chunk.js",
+    "static/js/2.d8de70ed.chunk.js.map": "/piano-chords-finder/static/js/2.d8de70ed.chunk.js.map",
     "index.html": "/piano-chords-finder/index.html",
-    "precache-manifest.43bc77bd60f3689fe5874f32fa02b81b.js": "/piano-chords-finder/precache-manifest.43bc77bd60f3689fe5874f32fa02b81b.js",
+    "precache-manifest.e506941843874171ba0eb05a7e39e056.js": "/piano-chords-finder/precache-manifest.e506941843874171ba0eb05a7e39e056.js",
     "service-worker.js": "/piano-chords-finder/service-worker.js",
     "static/css/2.1e78366a.chunk.css.map": "/piano-chords-finder/static/css/2.1e78366a.chunk.css.map",
-    "static/css/main.89c572de.chunk.css.map": "/piano-chords-finder/static/css/main.89c572de.chunk.css.map",
-    "static/js/2.3d77729f.chunk.js.LICENSE.txt": "/piano-chords-finder/static/js/2.3d77729f.chunk.js.LICENSE.txt"
+    "static/css/main.d50bee04.chunk.css.map": "/piano-chords-finder/static/css/main.d50bee04.chunk.css.map",
+    "static/js/2.d8de70ed.chunk.js.LICENSE.txt": "/piano-chords-finder/static/js/2.d8de70ed.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.cb5876dd.js",
     "static/css/2.1e78366a.chunk.css",
-    "static/js/2.3d77729f.chunk.js",
-    "static/css/main.89c572de.chunk.css",
-    "static/js/main.e3a80e3c.chunk.js"
+    "static/js/2.d8de70ed.chunk.js",
+    "static/css/main.d50bee04.chunk.css",
+    "static/js/main.58f1d1dd.chunk.js"
   ]
 }
