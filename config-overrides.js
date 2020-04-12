@@ -19,6 +19,20 @@ module.exports = override(
   ),
 
   // addWebpackPlugin(new CircularDependencyPlugin()),
-  addBundleVisualizer({}, true)
-  // addPostcssPlugins([require("postcss-nested")])
+  addBundleVisualizer({}, true),
+  addPostcssPlugins([
+    require("postcss-nested"),
+
+    require("postcss-font-magician")({
+      variants: {
+        Roboto: {
+          "300": [],
+          "400": [],
+          "700": [],
+        },
+      },
+      foundries: ["google"],
+    }),
+    require("postcss-preset-env"),
+  ])
 );

@@ -1,13 +1,13 @@
 module.exports = {
   parserOptions: {
-    project: "./tsconfig.json"
+    project: "./tsconfig.json",
   },
   settings: {
     "import/resolver": {
       node: {
-        paths: ["src"]
-      }
-    }
+        paths: ["src"],
+      },
+    },
   },
   extends: [
     "react-app",
@@ -23,19 +23,17 @@ module.exports = {
     "plugin:jest/recommended",
     "plugin:jest-dom/recommended",
     "plugin:testing-library/recommended",
-    "plugin:testing-library/react"
+    "plugin:testing-library/react",
   ],
   plugins: [
     "deprecate",
     "css-modules",
     "sort-imports-es6-autofix",
     "github",
-    "prettier",
     "react-hooks",
-    "redux-saga",
     "jest-dom",
     "testing-library",
-    "jsx-a11y"
+    "jsx-a11y",
   ],
   rules: {
     // "testing-library/consistent-data-testid": [
@@ -68,8 +66,8 @@ module.exports = {
       {
         ignoreCase: false,
         ignoreMemberSort: false,
-        memberSyntaxSortOrder: ["none", "all", "multiple", "single"]
-      }
+        memberSyntaxSortOrder: ["none", "all", "multiple", "single"],
+      },
     ],
     "no-debugger": "warn",
     eqeqeq: ["error", "smart"],
@@ -83,8 +81,8 @@ module.exports = {
       {
         allowShortCircuit: true,
         allowTernary: true,
-        allowTaggedTemplates: true
-      }
+        allowTaggedTemplates: true,
+      },
     ],
     "object-shorthand": "warn",
     "no-unused-labels": "warn",
@@ -98,8 +96,8 @@ module.exports = {
       {
         ignoreDestructuring: false,
         ignoreImport: false,
-        ignoreExport: false
-      }
+        ignoreExport: false,
+      },
     ],
     "no-constant-condition": "warn",
     "no-return-assign": "error",
@@ -112,8 +110,8 @@ module.exports = {
     "react/jsx-no-duplicate-props": [
       "warn",
       {
-        ignoreCase: true
-      }
+        ignoreCase: true,
+      },
     ],
     "react/jsx-no-target-blank": "warn",
     "react/jsx-no-undef": "error",
@@ -121,8 +119,8 @@ module.exports = {
       "warn",
       {
         allowAllCaps: true,
-        ignore: []
-      }
+        ignore: [],
+      },
     ],
     "react/jsx-uses-react": "warn",
     "react/jsx-uses-vars": "warn",
@@ -131,8 +129,8 @@ module.exports = {
       {
         callbacksLast: false,
         shorthandFirst: false,
-        reservedFirst: true
-      }
+        reservedFirst: true,
+      },
     ],
     "react/no-deprecated": "warn",
     "react/no-unused-state": "warn",
@@ -150,6 +148,8 @@ module.exports = {
     "react/no-unescaped-entities": "off",
     "react/style-prop-object": "warn",
     "react/button-has-type": "error",
-    "react/no-unknown-property": "warn"
-  }
+    "react/no-unknown-property": "warn",
+  },
 };
+
+

@@ -1,0 +1,18 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+.nav {
+  display: flex;
+  min-height: 1em;
+}
+.sectionLink + .sectionLink {
+  margin-left: 2em;
+}
+
+.container {
+  flex-grow: 1;
+}

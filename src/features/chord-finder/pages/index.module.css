@@ -1,27 +1,22 @@
-.App {
-  text-align: center;
-}
-
-.inputDevice {
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
 }
 .notes {
   margin-top: 2em;
   margin-left: 45%;
   text-align: left;
+  flex-grow: 1;
 }
-.chord {
-}
-.chordsContainer {
-  margin-top: 2em;
-  text-align: left;
-}
-.possibleChords {
-}
+
 .pianoConainer {
   height: 200px;
 }
 .noteName {
   font-size: 10px;
+  text-align: center;
 }
 .sharps {
   color: white;
