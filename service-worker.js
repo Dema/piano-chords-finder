@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/piano-chords-finder/precache-manifest.df8157389f2ac7c8e7d1e2d333ef2ea1.js"
+  "/piano-chords-finder/precache-manifest.379e1d3f8e663fba17eae71a2a8707a9.js"
 );
 
 self.addEventListener('message', (event) => {
