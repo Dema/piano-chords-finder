@@ -1,5 +1,4 @@
 import "./index.css";
-import * as serviceWorker from "./serviceWorker";
 import { HashRouter as Router } from "react-router-dom";
 import App from "./features/core/app";
 import React from "react";
@@ -17,4 +16,3 @@ ReactDOM.render(
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();

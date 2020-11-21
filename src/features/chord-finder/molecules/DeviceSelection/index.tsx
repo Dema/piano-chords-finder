@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-onchange */
 import { Input } from "webmidi";
 
 import React, { FC, SyntheticEvent, useCallback } from "react";
@@ -17,7 +18,6 @@ const DeviceSelection: FC<Props> = ({ value, items, onChange }) => {
     [items, onChange]
   );
 
-  console.log("items", items);
   return (
     <div className={css.inputDevice}>
       <span>
@@ -25,7 +25,7 @@ const DeviceSelection: FC<Props> = ({ value, items, onChange }) => {
         <br />
         {value?.name ?? "Not Connected"}
       </span>
-      <select className={css.select1} onBlur={handleChange} value={selected}>
+      <select className={css.select1} onChange={handleChange} value={selected}>
         {items.map((item, idx) => (
           <option key={idx} value={idx}>
             {item.name}
