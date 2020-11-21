@@ -17,6 +17,7 @@
 .noteName {
   font-size: 10px;
   text-align: center;
+  user-select: none;
 }
 .sharps {
   color: white;
