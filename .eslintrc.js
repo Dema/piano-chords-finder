@@ -55,7 +55,10 @@ module.exports = {
     "jsx-a11y/click-events-have-key-events": "off",
     "css-modules/no-unused-class": "warn",
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": [
+      "error",
+      { enableDangerousAutofixThisMayCauseInfiniteLoops: true },
+    ],
     "import/no-useless-path-segments": "warn",
     "import/namespace": "off",
     "import/prefer-default-export": "warn",
@@ -122,7 +125,7 @@ module.exports = {
         ignore: [],
       },
     ],
-    "react/jsx-uses-react": "warn",
+    "react/jsx-uses-react": "off",
     "react/jsx-uses-vars": "warn",
     "react/jsx-sort-props": [
       "warn",
@@ -143,7 +146,7 @@ module.exports = {
     "react/no-unused-prop-types": "warn",
     "react/jsx-handler-names": "warn",
     "react/jsx-key": "warn",
-    "react/react-in-jsx-scope": "error",
+    "react/react-in-jsx-scope": "off",
     "react/require-render-return": "error",
     "react/no-unescaped-entities": "off",
     "react/style-prop-object": "warn",
@@ -151,5 +154,3 @@ module.exports = {
     "react/no-unknown-property": "warn",
   },
 };
-
-
