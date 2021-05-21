@@ -22,3 +22,8 @@
 .sharps {
   color: white;
 }
+.noteDescription {
+  display: flex;
+  margin-top: 1em;
+  padding: 0 1em;
+}

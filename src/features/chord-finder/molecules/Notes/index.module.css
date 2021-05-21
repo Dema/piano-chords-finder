@@ -1,0 +1,8 @@
+.staveWrapper {
+  width: 300px;
+  height: 300px;
+}
+
+.staveWrapper :global(.sheet-music) {
+  height: 300px;
+}

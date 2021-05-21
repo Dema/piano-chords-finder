@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/no-onchange */
-import { Input } from "webmidi";
-
+import * as css from "./index.module.css";
 import React, { FC, SyntheticEvent, useCallback } from "react";
-import css from "./index.module.css";
+import type { Input } from "webmidi";
 
 type Props = {
   items: Input[];

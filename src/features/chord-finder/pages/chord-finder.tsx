@@ -1,10 +1,12 @@
 import "react-piano/dist/styles.css";
+import * as css from "./index.module.css";
 import { ControlledPiano } from "react-piano";
 import { detect } from "@tonaljs/chord-detect";
 import { midiToNoteName } from "@tonaljs/midi";
 import ChordsList from "../molecules/ChordsList";
 import DeviceSelection from "../molecules/DeviceSelection";
-import React, { useEffect, useState } from "react";
+import Notes from "../molecules/Notes";
+import React, { FC, useCallback, useEffect, useMemo, useState } from "react";
 import WebMidi, {
   IEventNote,
   Input,
@@ -14,7 +16,6 @@ import WebMidi, {
   WebMidiEventDisconnected,
 } from "webmidi";
 import cn from "classnames";
-import css from "./index.module.css";
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const noop = () => {};
@@ -24,15 +25,14 @@ const MIDDLE_C_MIDI_NUM = 60;
 const LOWEST_NOTE = 21;
 const HIGHEST_NOTE = 127;
 
-function ChordsFinder() {
+const ChordFinder: FC = () => {
   const [midiEnabled, setMidiEnabled] = useState(false);
   const [noteRange, setNoteRange] = useState<{ first: number; last: number }>({
     first: 60,
     last: 62,
   });
-  const [selectedInputDevice, setSelectedInputDevice] = useState<Input | null>(
-    null
-  );
+  const [selectedInputDevice, setSelectedInputDevice] =
+    useState<Input | null>(null);
   const [availableDevices, setAvailableDevices] = useState<Input[]>([]);
 
   const [notesPlaying, setNotesPlaying] = useState<IEventNote[]>([]);
@@ -66,9 +66,11 @@ function ChordsFinder() {
   useEffect(() => {
     const connectedListener = (e: WebMidiEventConnected) => {
       if (e.port.type === "input") {
+        const device = e.port;
         setAvailableDevices((devices) =>
-          devices.filter((d) => d.id !== e.port.id).concat(e.port as Input)
+          devices.filter((d) => d.id !== e.port.id).concat(device)
         );
+        setSelectedInputDevice(device);
       }
     };
     const disconnectedListener = (e: WebMidiEventDisconnected) => {
@@ -76,19 +78,22 @@ function ChordsFinder() {
         setAvailableDevices((devices) =>
           devices.filter((d) => d.id !== e.port.id)
         );
+        setSelectedInputDevice(null);
       }
     };
 
     WebMidi.enable((err) => {
       if (!err) {
         setMidiEnabled(true);
-        WebMidi.addListener("connected", connectedListener);
-        WebMidi.addListener("disconnected", disconnectedListener);
+        if (WebMidi.enabled) {
+          WebMidi.addListener("connected", connectedListener);
+          WebMidi.addListener("disconnected", disconnectedListener);
+        }
       } else {
         // eslint-disable-next-line no-console
-        console.log(err);
+        console.log("ZZ", err);
       }
-    });
+    }, true);
     return () => {
       if (WebMidi.enabled) {
         WebMidi.removeListener("connected", connectedListener);
@@ -96,7 +101,7 @@ function ChordsFinder() {
       }
       WebMidi.disable();
     };
-  }, [selectedInputDevice]);
+  }, []);
 
   useEffect(() => {
     if (midiEnabled && selectedInputDevice) {
@@ -121,7 +126,30 @@ function ChordsFinder() {
   }, [selectedInputDevice, midiEnabled]);
 
   const chords = detect(notesPlaying.map((n) => n.name));
+  const renderNoteLabel = useCallback(
+    ({
+      midiNumber,
+      isAccidental,
+    }: {
+      // eslint-disable-next-line react/no-unused-prop-types
+      midiNumber: number;
+      // eslint-disable-next-line react/no-unused-prop-types
+      isAccidental: boolean;
+    }) => (
+      <div className={cn(css.noteName, { [css.sharps]: isAccidental })}>
+        {midiToNoteName(midiNumber, {
+          pitchClass: isAccidental,
+          sharps: true,
+        })}
+      </div>
+    ),
+    []
+  );
 
+  const activeNotes = useMemo(
+    () => notesPlaying.map((n) => n.number),
+    [notesPlaying]
+  );
   return (
     <div className={css.container}>
       <DeviceSelection
@@ -132,29 +160,22 @@ function ChordsFinder() {
       <div className={css.pianoConainer}>
         <ControlledPiano
           key={`${noteRange.first}:${noteRange.last}`}
-          activeNotes={notesPlaying.map((n) => n.number)}
+          activeNotes={activeNotes}
           noteRange={noteRange}
           onPlayNoteInput={noop}
           onStopNoteInput={noop}
           playNote={noop}
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          renderNoteLabel={({ midiNumber, isAccidental }: any) => (
-            <div className={cn(css.noteName, { [css.sharps]: isAccidental })}>
-              {midiToNoteName(midiNumber, {
-                pitchClass: isAccidental,
-                sharps: true,
-              })}
-            </div>
-          )}
+          renderNoteLabel={renderNoteLabel}
           stopNote={noop}
         />
       </div>
-      <div className={css.notes}>
-        Notes: {notesPlaying.map((n) => n.name + n.octave).join(", ")}
+
+      <div className={css.noteDescription}>
+        {<Notes notes={notesPlaying} />}
+        <ChordsList chords={chords} />
       </div>
-      <ChordsList chords={chords} />
     </div>
   );
-}
+};
 
-export default ChordsFinder;
+export default ChordFinder;
