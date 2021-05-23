@@ -5,7 +5,7 @@ import type { Input } from "webmidi";
 
 type Props = {
   items: Input[];
-  value: Input | null;
+  value: Input | undefined;
   onChange: (value: Input) => void;
 };
 const DeviceSelection: FC<Props> = ({ value, items, onChange }) => {

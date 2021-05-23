@@ -1,5 +1,5 @@
 import * as css from "./index.module.css";
-import ABCjs from "../../../../ui/molecules/ABCjs";
+import ABCjs from "../ABCjs";
 import React, { FC, useMemo } from "react";
 import type { IEventNote } from "webmidi";
 

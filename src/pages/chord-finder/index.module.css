@@ -5,22 +5,10 @@
   height: 100%;
 }
 .notes {
+  flex-grow: 1;
   margin-top: 2em;
   margin-left: 45%;
   text-align: left;
-  flex-grow: 1;
-}
-
-.pianoConainer {
-  height: 200px;
-}
-.noteName {
-  font-size: 10px;
-  text-align: center;
-  user-select: none;
-}
-.sharps {
-  color: white;
 }
 .noteDescription {
   display: flex;
