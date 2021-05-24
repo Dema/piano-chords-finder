@@ -12,6 +12,15 @@
 }
 .noteDescription {
   display: flex;
+  justify-content: center;
   margin-top: 1em;
   padding: 0 1em;
+}
+.keySelector {
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
+}
+.keySelector > * {
+  width: 200px;
 }

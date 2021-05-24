@@ -32,13 +32,13 @@ const midiToABC = (note: IEventNote) => {
   return MIDI_MAP[note.number % 12] + suffix;
 };
 
-type Props = { notes: IEventNote[] };
-const Notes: FC<Props> = ({ notes }) => {
+type Props = { notes: IEventNote[]; musicKey: string };
+const Notes: FC<Props> = ({ notes, musicKey }) => {
   const notation = useMemo(() => {
     const treble = `V:1\n|[${notes.map(midiToABC).join("")}]|`;
     const bass = `V:2 clef=bass\n|[${notes.map(midiToABC).join("")}]|`;
-    return ["M:4/4", treble, bass].join("\n");
-  }, [notes]);
+    return ["M:4/4", `K:${musicKey}`, treble, bass].join("\n");
+  }, [musicKey, notes]);
 
   return (
     <div className={css.staveWrapper}>
