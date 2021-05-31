@@ -1,5 +1,5 @@
 import "./index.css";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import EnableMidiProvider from "../features/core/enable-midi-provider";
 import React, { FC, Suspense, lazy } from "react";
 
@@ -10,6 +10,7 @@ const App: FC = () => {
     <Suspense fallback={null}>
       <EnableMidiProvider>
         <Switch>
+          <Redirect exact path="/" to="/chords-finder" />
           <Route path="/chords-finder">
             <ChordsFinder />
           </Route>

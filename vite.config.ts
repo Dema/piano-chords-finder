@@ -8,8 +8,8 @@ export default defineConfig({
   base: "/piano-chords-finder/",
   plugins: [
     reactRefresh(),
-    visualizer(),
-    // gizp
+    visualizer({}),
+    // gzip
     viteCompression(),
     // br
     viteCompression({
